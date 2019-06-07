@@ -1,6 +1,6 @@
-name: Your Name
-studentNumber: z1234567
-officialEmail: noIdea@unsw.edu.au
+name: Luka Jovanovic
+studentNumber: z5257828
+officialEmail: z5257828@unsw.edu.au
 contactEmail:
-  firstBit: firstName.Lastname  # this avoids spam, the @ is implied
+  firstBit: Luka.Jovanovic  # this avoids spam, the @ is implied
   otherBit: whereIwork.com
