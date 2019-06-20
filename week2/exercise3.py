@@ -7,8 +7,11 @@ def is_odd(a_number):
 
     Look into modulo division using the '%' operator as one way of doing this.
     """
-    return None
-
+    if (a_number % 2) == 0:
+        return False
+    else:
+        return True
+        
 
 def fix_it(moves=True, should_move=True):
     """Decide what to do.
@@ -25,7 +28,16 @@ def fix_it(moves=True, should_move=True):
     Most people write this function with 4 return statements. 
     As an extra challenge, see if you can get that down to three.
     """
-    return None
+    #Syntax is really important here! After the is true or false use ":"
+    if moves is False and should_move is True:
+        return "WD-40"
+    elif moves is True and should_move is False:
+        return "Duct Tape" 
+    elif moves is False and should_move is False:
+     return "No Problem"
+    elif moves is True and should_move is True:
+        return "No Problem"
+      
 
 
 def loops_1a():
@@ -35,8 +47,11 @@ def loops_1a():
     return a list of 10 items, each one a string with exacly one star in it.
     E.g.: ['*', '*', '*', '*', '*', '*', '*', '*', '*', '*']
     """
-    return None
+    star = []
 
+    for a in range(10):
+         star.append("*")
+    return star
 
 def loops_1c(number_of_items=5, symbol="#"):
     """Respond to variables.
@@ -45,7 +60,9 @@ def loops_1c(number_of_items=5, symbol="#"):
     string with exacly one symbol in it.
     E.g.: ['#', '#', '#', '#', '#']
     """
-    return None
+    #the list below is made up of 'symbol'='#'. it is multiplied by number of items
+    list = [symbol]
+    return list*number_of_items
 
 
 def loops_2():
@@ -54,7 +71,7 @@ def loops_2():
     return a list of 10 items, each one a list of 10 items,
     each one of those, a string with exacly one star in it.
     E.g.: [
-            ['*', '*', '*', '*', '*', '*', '*', '*', '*', '*'],
+         
             ['*', '*', '*', '*', '*', '*', '*', '*', '*', '*'],
             ['*', '*', '*', '*', '*', '*', '*', '*', '*', '*'],
             ['*', '*', '*', '*', '*', '*', '*', '*', '*', '*'],
@@ -66,8 +83,13 @@ def loops_2():
             ['*', '*', '*', '*', '*', '*', '*', '*', '*', '*'],
           ]
     """
-    return None
-
+    BigStars = []
+    for i in range(10):
+      BigStars.append( "*")
+      BigStars2 = []
+      for j in range(10):
+         BigStars2.append(BigStars)
+    return BigStars2
 
 def loops_3():
     """Make a rising block of numbers.
@@ -90,8 +112,13 @@ def loops_3():
     TIP: notice that this needs to to return strings of numbers,
          so call str(number) to cast.
     """
-    return None
-
+    Numbers = []
+    for i in range (10):
+      Numbers2 = []
+      for j in range (10):
+           Numbers2.append(str(i))
+      Numbers.append(Numbers2)
+    return Numbers
 
 def loops_4():
     """Make a block of numbers that rises left to right.
@@ -110,8 +137,13 @@ def loops_4():
       ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9']
     ]
     """
-    return None
-
+    Nums = []
+    for i in range (10):
+        Nums2 = []
+        for j in range (10):
+            Nums2.append(str(j))
+        Nums.append(Nums2)
+    return Nums
 
 def loops_5():
     """Make the coordinates of the block.
@@ -137,8 +169,13 @@ def loops_5():
         "There are {} green bottles".format(8)
     you'll come to see the pros and cons of each over time.
     """
-    return None
-
+    coord = []
+    for x in range (10):
+        coord2 = []
+        for y in range (5):
+            coord2.append("(" + "i" + str(x) + "," + " " + "j" + str(y) + ")")
+        coord.append(coord2)
+    return coord
 
 def loops_6():
     """Make a wedge of numbers.
@@ -160,8 +197,13 @@ def loops_6():
     You can use a variable.
     TIP: look out for the starting condition.
     """
-    return None
-
+    wedge = []
+    for o in range (10):
+       wedge2 = []
+       for p in range (o+1):
+           wedge2.append(str(p))
+       wedge.append(wedge2)
+    return wedge
 
 def loops_7():
     """Make a pyramid.
@@ -184,8 +226,19 @@ def loops_7():
     This is a hard problem. Use lots of experimentation and draw
     lots of diagrams!
     """
-    return None
-
+    pyra = []
+    for a in range (1,6):
+        pyra2 = []
+        for b in range (1,10):
+            u = 0
+            v = 5
+            if b > v - a and b < v + a:
+                pyra2.append("*")
+            else:
+                pyra2.append(" ")
+            u = u + 1
+        pyra.append(pyra2)
+    return pyra
 
 def lp(some_kind_of_list, exercise_name):
     """Help to see what's going on.
