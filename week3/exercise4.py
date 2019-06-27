@@ -5,7 +5,6 @@
 import math
 # import time
 
-
 def binary_search(low, high, actual_number):
     """Do a binary search.
     This is going to be your first 'algorithm' in the usual sense of the word!
@@ -24,6 +23,8 @@ def binary_search(low, high, actual_number):
     """
     tries = 0
     guess = 0
+
+
     return {"guess": guess, "tries": tries}
 
 

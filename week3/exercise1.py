@@ -89,8 +89,12 @@ def super_asker(low, high):
     Try to call at least one of the other functions to minimise the
     amount of code.
     """
-    return Num
-
+    Number = False
+    while Number != True:
+        Numbr = not_number_rejector("Try a number between" + str(low) + " and " + str(high) + ": ")
+        if int(Numbr) > low and int(Numbr) < high:
+           Number = True
+    return int(Numbr)
 if __name__ == "__main__":
     # this section does a quick test on your results and prints them nicely.
     # It's NOT the official tests, they are in tests.py as usual.
