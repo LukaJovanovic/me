@@ -89,19 +89,6 @@ def super_asker(low, high):
     Try to call at least one of the other functions to minimise the
     amount of code.
     """
-    Num = False
-    while Num is True:
-        number = input("Enter a number: ")
-        while low >= number or high <= number:
-            print("This number is not accepted")
-            number = input("Enter a Number: ")
-            while Num is False:
-                    try:
-            int(Num)
-            print(Num)
-            Number = True
-        except ValueError:
-                Num = input("Enter a number: ")
     return Num
 
 if __name__ == "__main__":
