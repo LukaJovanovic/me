@@ -1,7 +1,3 @@
 TODO: Reflect on what you learned this week and what is still unclear.
-    number = int(input("Enter a number:"))
-    if number > low and number < high:
-        print("This number is accepted")
-    else:
-        print("Unacceptable")
-    return("This is the number")
+use a def to call upon something that you want to use later
+ValueError happens in the case of a wrong value and can be used to make something happen during these cases.
