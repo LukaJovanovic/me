@@ -21,11 +21,25 @@ def binary_search(low, high, actual_number):
     Use the VS Code debugging tools a lot here. It'll make understanding 
     things much easier.
     """
-    #initially both below are 0
+ #Guess and tries start at 0
     tries = 0
     guess = 0
+#you must define 'n'(the number of elements in the array) - the inputs are the array.
+    n = list(range(low, high + 1))
 
-    while low >= high:
+    min = 0
+    max = n-1
+#Now that we have defined a bunch of stuff, we begin looking for the target (actual_number in this case)
+#We start by looking for the midpoint
+    MidPoint = (max + min)/2
+#We check to see if the MidPoint is the answer
+    if MidPoint is actual_number:
+        return {"guess": guess, "tries": tries}
+
+#We now look for if the target (actual_number) is in the 1st or 2nd half
+
+
+
         
 
 
