@@ -61,8 +61,10 @@ def loops_1c(number_of_items=5, symbol="#"):
     E.g.: ['#', '#', '#', '#', '#']
     """
     #the list below is made up of 'symbol'='#'. it is multiplied by number of items
-    list = [symbol]
-    return list*number_of_items
+    list = []
+    for person in range(number_of_items):
+        list.append(symbol)
+    return list
 
 
 def loops_2():
@@ -170,10 +172,13 @@ def loops_5():
     you'll come to see the pros and cons of each over time.
     """
     coord = []
-    for x in range (10):
+    for y in range (10):
         coord2 = []
-        for y in range (5):
-            coord2.append("(" + "i" + str(x) + "," + " " + "j" + str(y) + ")")
+        for x in range (5):
+            template = "(i{col}, j{row})"
+            value_to_append = template.format(col=y,
+                                              row=x)
+            coord2.append(value_to_append)
         coord.append(coord2)
     return coord
 

@@ -77,8 +77,9 @@ def not_number_rejector(message):
             int(Num)
             print(Num)
             Number = True
-        except ValueError:
+        except Exception:
             Num = input("Enter a number: ")
+
     return Num
 
 def super_asker(low, high):

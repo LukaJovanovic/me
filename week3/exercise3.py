@@ -25,7 +25,55 @@ def advancedGuessingGame():
     Remember to think modular. Try to keep your functions small and single
     purpose if you can!
     """
+    print("\nWelcome to the guessing game!")
+    print("A number between _ and an upper bound?")
+    Number = False
+    lowerBound = input("Enter an lower bound: ")
+    while Number is False:
+      try:
+        int(lowerBound)
+        print(lowerBound)
+        Number = True
+      except Exception:
+        lowerBound = input("Enter an lower bound: ")
+    print("OK then, a number between {} and _ ?".format(lowerBound))
+    lowerBound = int(lowerBound)
+    Num = False
+    upperBound = input("Enter an upper bound: ")
+    while int(upperBound) <= int(lowerBound):
+      print("Upperbound must be greater than {}".format(lowerBound))
+      upperBound = input("Enter an upper bound: ")
+    while Num is False:
+      try:
+        int(upperBound)
+        print(upperBound)
+        Num = True
+      except Exception:
+        upperBound = input("Enter an upper bound: ")
+        while int(upperBound) <= int(lowerBound):
+          print("Upperbound must be greater than {}".format(lowerBound))
+        Number = False
+        upperBound = input("Enter an upper bound: ")
+    print("OK then, your number is between {}".format(lowerBound) + " and {}".format(upperBound))
+    upperBound = int(upperBound)
 
+    actualNumber = random.randint(lowerBound, upperBound)
+
+
+    guessed = False
+
+    while not guessed:
+        guessedNumber = int(input("Guess a number: "))
+        print("You guessed {},".format(guessedNumber),)
+        if guessedNumber == actualNumber:
+            print("You got it!! It was {}".format(actualNumber))
+            guessed = True
+        elif guessedNumber < actualNumber:
+            print("Too small, try again :'(")
+        else:
+            print("Too big, try again :'(")
+        if guessedNumber > upperBound or guessedNumber < lowerBound:
+            print("Guess between {}".format(lowerBound) + " and {}".format(upperBound))
     return "You got it!"
 
 
