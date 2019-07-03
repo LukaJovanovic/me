@@ -1,6 +1,6 @@
 # -*- coding: UTF-8 -*-
 """Week 3.
-
+#This just also got renamed in a commit (it's fine)
 Modify each function until the tests pass.
 """
 
