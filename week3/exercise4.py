@@ -24,7 +24,7 @@ def binary_search(low, high, actual_number):
  #Guess and tries start at 0
     tries = 0
     guess = 0
-#you must define 'n'(the number of elements in the array) - the inputs are the array.
+#you must define 'n'(the number of elements in the array) - the inputs are the array(n).
     n = list(range(low, high + 1))
 
     min = 0
@@ -33,10 +33,11 @@ def binary_search(low, high, actual_number):
 #We start by looking for the midpoint
     MidPoint = (max + min)/2
 #We check to see if the MidPoint is the answer
-    if MidPoint is actual_number:
+    if n[MidPoint] is actual_number:
         return {"guess": guess, "tries": tries}
 
 #We now look for if the target (actual_number) is in the 1st or 2nd half
+
 
 
 
