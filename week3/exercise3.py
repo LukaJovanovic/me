@@ -28,21 +28,15 @@ def advancedGuessingGame():
     print("\nWelcome to the guessing game!")
     print("A number between _ and an upper bound?")
     Number = False
-    lowerBound = input("Enter an lower bound: ")
-    while Number is False:
-      try:
-        int(lowerBound)
-        print(lowerBound)
-        Number = True
-      except Exception:
-        lowerBound = input("Enter an lower bound: ")
+    
+    lowerBound = getAnumber("what's your lower bound? enter a number:")
     print("OK then, a number between {} and _ ?".format(lowerBound))
-    lowerBound = int(lowerBound)
+    upperBound = getAnumber("Enter an upper bound: ")
+
     Num = False
-    upperBound = input("Enter an upper bound: ")
     while int(upperBound) <= int(lowerBound):
       print("Upperbound must be greater than {}".format(lowerBound))
-      upperBound = input("Enter an upper bound: ")
+      upperBound = getAnumber("Enter an upper bound: ")
     while Num is False:
       try:
         int(upperBound)
@@ -76,6 +70,15 @@ def advancedGuessingGame():
             print("Guess between {}".format(lowerBound) + " and {}".format(upperBound))
     return "You got it!"
 
+def getAnumber(message):
+  Num = input(message)
+  while True:
+      try:
+          Number = int(Num)
+          print(Number)
+          return Number
+      except Exception:
+          Num = input(message)
 
     # the tests are looking for the exact string "You got it!". Don't modify that!
 
