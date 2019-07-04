@@ -28,23 +28,33 @@ def binary_search(low, high, actual_number):
     n = list(range(low, high + 1))
 
     min = 0
-    max = n-1
+    max = len(n)
 #Now that we have defined a bunch of stuff, we begin looking for the target (actual_number in this case)
-#We start by looking for the midpoint
-    MidPoint = (max + min)/2
+#We start by looking for the midpoint (While loop stops when target found)
+    while max >= min:
+        #This while loop steps by finding the average of the minimum and the difference b/w max and min.
+        MidPoint = math.floor(min + (max - min)/2)
 #We check to see if the MidPoint is the answer
-    if n[MidPoint] is actual_number:
-        return {"guess": guess, "tries": tries}
+        if n[MidPoint] is actual_number:
+            return {"guess": guess, "tries": tries}
+#We now look for if the target (actual_number) is in the 1st half or 2nd half
+        elif n[MidPoint] > actual_number:
+            #an extra try is added to tries
+            tries +=1
+            #the guess is added to guess
+            guess = n[MidPoint]
+            #since the number is in the 1st half, the midpoint - 1 becomes the new maximum
+            max = MidPoint - 1
+    
+        else:
+            #an extra try is added
+            tries += 1
+            #the guess is added
+            guess = n[MidPoint]
+            #since the number is in the second half, the new minimum is the midpoint + 1
+            min = MidPoint + 1
 
-#We now look for if the target (actual_number) is in the 1st or 2nd half
-
-
-
-
-        
-
-
-    return {"guess": guess, "tries": tries}
+        #since the number is false in this case, not in this list
 
 
 if __name__ == "__main__":
