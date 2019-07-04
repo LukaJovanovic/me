@@ -54,7 +54,6 @@ def binary_search(low, high, actual_number):
             #since the number is in the second half, the new minimum is the midpoint + 1
             min = MidPoint + 1
 
-        #since the number is false in this case, not in this list
 
 
 if __name__ == "__main__":
