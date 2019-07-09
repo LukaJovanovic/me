@@ -57,7 +57,7 @@ def advancedGuessingGame():
     guessed = False
 
     while not guessed:
-        guessedNumber = int(input("Guess a number: "))
+        guessedNumber = getAnumber("Guess a number: ")
         print("You guessed {},".format(guessedNumber),)
         if guessedNumber == actualNumber:
             print("You got it!! It was {}".format(actualNumber))
@@ -69,7 +69,7 @@ def advancedGuessingGame():
         if guessedNumber > upperBound or guessedNumber < lowerBound:
             print("Guess between {}".format(lowerBound) + " and {}".format(upperBound))
     return "You got it!"
-
+#not number rejector
 def getAnumber(message):
   Num = input(message)
   while True:

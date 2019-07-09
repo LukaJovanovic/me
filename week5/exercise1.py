@@ -14,29 +14,32 @@ Some functions will have directions as external comments, once you think you
 are on top of it, take these comments out. Others won't have comments and
 you'll need to figure out for yourself what to do.
 """
-
+#Refactoring is about having working code, but it's ugly code so you must fix the things such as repeated things.
+#Functionalising code is an important part of refactoring
+#Write your own functions 
 
 # This is a terrible function. The rest of the functions in this file do a
 # much better job of what it's trying to do. Once you've has a little look,
 # move on, and eventually delete this function. (And this comment!)
+ready = "Getting ready to start in {}"
+
 def do_bunch_of_bad_things():
-    print("Getting ready to start in 9")
-    print("Getting ready to start in 8")
-    print("Getting ready to start in 7")
-    print("Getting ready to start in 6")
-    print("Getting ready to start in 5")
-    print("Getting ready to start in 4")
-    print("Getting ready to start in 3")
-    print("Getting ready to start in 2")
-    print("Getting ready to start in 1")
+    num = 9
+    while num is num:
+        print(ready.format(num))
+        num = (num -1)
+        if num is 0:
+            break
     print("Let's go!")
 
     triangle = {"base": 3, "height": 4}
-    triangle["hypotenuse"] = triangle["base"] ** 2 + triangle["height"] ** 2
-    print("area = " + str((triangle["base"] * triangle["height"]) / 2))
+    trib = triangle["base"]
+    trih = triangle["height"]
+    triangle["hypotenuse"] = trib ** 2 + trih ** 2
+    print("area = " + str((trib * trih) / 2))
     print("side lengths are:")
-    print("base: {}".format(triangle["base"]))
-    print("height: {}".format(triangle["height"]))
+    print("base: {}".format(trib))
+    print("height: {}".format(trih))
     print("hypotenuse: {}".format(triangle["hypotenuse"]))
 
     another_hyp = 5 ** 2 + 6 ** 2
@@ -48,9 +51,11 @@ def do_bunch_of_bad_things():
 
 # return a list of countdown messages, much like in the bad function above.
 # It should say something different in the last message.
-def countdown(message, start, stop, completion_message):
-    pass
 
+def countdown(message, start, stop, completion_message):
+
+    pass
+ 
 
 # TRIANGLES
 

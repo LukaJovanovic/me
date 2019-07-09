@@ -37,10 +37,12 @@ def get_some_details():
 
     data = json.loads(json_data)
 
-    data["results"][0]["name"]["last"], int(data["results"][3]["login"]["password"], data["results"][1]["location"]["postcode"]) + int(data["results"][6][value])
+    lastName = data["results"][0]["name"]["last"]
+    password = data["results"][0]["login"]["password"]
+    postcodePlusID = (int(data["results"][0]["location"]["postcode"]) + int(data["results"][0]["id"]["value"]))
 
 
-    return {"lastName": None, "password": None, "postcodePlusID": None}
+    return {"lastName": lastName, "password": password, "postcodePlusID": postcodePlusID}
 
 
 def wordy_pyramid():
@@ -80,6 +82,9 @@ def wordy_pyramid():
     """
     pass
 
+def get_pokemon(id):
+
+    return 
 
 def pokedex(low=1, high=5):
     """ Return the name, height and weight of the tallest pokemon in the range low to high.
@@ -97,15 +102,34 @@ def pokedex(low=1, high=5):
     """
     template = "https://pokeapi.co/api/v2/pokemon/{id}"
 
-    url = template.format(base=template, id=5)
+    url = template.format(base=template, id=1)
     r = requests.get(url)
+    #if status code is okay, keep going
     if r.status_code is 200:
+        #this is a wall of text
         the_json = json.loads(r.text)
-    abil = the_json["abilities"]
-    return {"name": None, "weight": None, "height": None}
+    namePoke = the_json["name"]
+    heightPoke = the_json["height"]
+    weightPoke = the_json["weight"]
+    #we will have a for loop which ranges from low to high
+    name = []
+    height = []
+    weight = []
+    while high >= low:
+        try:
+            id += 1
+            low += 1
+             = get_pokemon(id)
+            name.append(namePoke)
+            height.append(heightPoke)
+            weight.append(weightPoke)
+        except:
+            pass
+    return {"name": name, "weight": weight, "height": height}
 
 
 def diarist():
+    #gcode is a file type wich robots such as 3d printers and laser cutters use.
     """Read gcode and find facts about it.
 
     Read in Trispokedovetiles(laser).gcode and count the number of times the
@@ -119,8 +143,8 @@ def diarist():
          the test will have nothing to look at.
     TIP: this might come in handy if you need to hack a 3d print file in the future.
     """
+    #search the string and find the thing youre looking for
     pass
-
 
 if __name__ == "__main__":
     functions = [
