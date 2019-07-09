@@ -117,9 +117,10 @@ def pokedex(low=1, high=5):
     weight = []
     while high >= low:
         try:
+            #Getting new id numbers and info
             id += 1
             low += 1
-             = get_pokemon(id)
+            get_pokemon(id)
             name.append(namePoke)
             height.append(heightPoke)
             weight.append(weightPoke)
@@ -144,6 +145,26 @@ def diarist():
     TIP: this might come in handy if you need to hack a 3d print file in the future.
     """
     #search the string and find the thing youre looking for
+#The number of times the word is found before opening is 0
+    a_number = 0
+    #Open the file
+    a = open("Trispokedovetiles(laser).gcode")
+    #Read the lines in the file
+    M10_P1 = a.readlines()
+    for line in M10_P1:
+        #If the M10 P1 shows up in the line, then
+        if "M10 P1" in line:
+            a_number = a_number + 1
+            #Show the final count
+    print(count)
+    #Close the file
+    a.close()
+    #create and open a new file
+    f = open("laser.pew", "w+")
+    #Write the number to the new file
+    f.write(str(a_number))
+    #Close the new file
+    f.close()
     pass
 
 if __name__ == "__main__":
