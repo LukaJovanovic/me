@@ -126,7 +126,13 @@ def pokedex(low=1, high=5):
             weight.append(weightPoke)
         except:
             pass
+# I dont know if this gets for the heighest weight
+            height = max(height)
+            id(name) is id(height)
+            id(weight) is id(height)
     return {"name": name, "weight": weight, "height": height}
+    #Figure out how to make it have info on each pokemon instead of one
+#Figure out how to make it find the tallest out of all of them
 
 
 def diarist():
