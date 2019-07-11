@@ -37,8 +37,12 @@ def get_some_details():
 
     data = json.loads(json_data)
 
-    lastName = data["results"][0]["name"]["last"]
-    password = data["results"][0]["login"]["password"]
+    this = data["results"][0]
+
+    lastName = this["name"]["last"]
+    password = this["login"]["password"]
+    the_id = this["id"]["value"]
+    postcode = this["loaction"]["postcode"]
     postcodePlusID = (int(data["results"][0]["location"]["postcode"]) + int(data["results"][0]["id"]["value"]))
 
 
@@ -102,37 +106,31 @@ def pokedex(low=1, high=5):
     """
     template = "https://pokeapi.co/api/v2/pokemon/{id}"
 
-    url = template.format(base=template, id=1)
-    r = requests.get(url)
-    #if status code is okay, keep going
-    if r.status_code is 200:
-        #this is a wall of text
-        the_json = json.loads(r.text)
-    namePoke = the_json["name"]
-    heightPoke = the_json["height"]
-    weightPoke = the_json["weight"]
-    #we will have a for loop which ranges from low to high
-    name = []
-    height = []
-    weight = []
-    while high >= low:
-        try:
-            #Getting new id numbers and info
-            id += 1
-            low += 1
-            get_pokemon(id)
-            name.append(namePoke)
-            height.append(heightPoke)
-            weight.append(weightPoke)
-        except:
-            pass
-# I dont know if this gets for the heighest weight
-            height = max(height)
-            id(name) is id(height)
-            id(weight) is id(height)
-    return {"name": name, "weight": weight, "height": height}
-    #Figure out how to make it have info on each pokemon instead of one
-#Figure out how to make it find the tallest out of all of them
+    all_the_pokemon = []
+
+    index_of_tallest = -1
+    tallest = None
+
+    for pokeID in range(low, high):
+        print(pokeID)
+
+        url = template.format(base=template, id=pokeID)
+        r = requests.get(url)
+        #if status code is okay, keep going
+        if r.status_code is 200:
+            #this is a wall of text
+            the_json = json.loads(r.text)
+            all_the_pokemon.append()
+
+    tallest_pokemon_height = -1
+
+    for one_poke in all_the_pokemon:
+        if one_poke["height"] > tallest_pokemon_height:
+            tallest = one_poke
+            tallest_pokemon_height = one_poke["height"]
+
+    print(tallest)
+    return {"name": tallest["name"], "weight": tallest["weight"], "height": tallest["height"]}
 
 
 def diarist():

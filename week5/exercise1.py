@@ -25,10 +25,10 @@ ready = "Getting ready to start in {}"
 
 def do_bunch_of_bad_things():
     num = 9
-    while num is num:
+    while num == num:
         print(ready.format(num))
         num = (num -1)
-        if num is 0:
+        if num == 0:
             break
     print("Let's go!")
 
@@ -53,6 +53,16 @@ def do_bunch_of_bad_things():
 # It should say something different in the last message.
 
 def countdown(message, start, stop, completion_message):
+    start = 5
+    stop = 0
+    message = "Ready in {}"
+    completion_message = "Blast off!"
+    while num == num:
+        print(message.format(start))
+        start = start -1
+        if start == 0:
+            break
+            print("completion_message")
 
     pass
  
@@ -67,18 +77,23 @@ def countdown(message, start, stop, completion_message):
 # The stub functions are made for you, and each one is tested, so this should
 # hand hold quite nicely.
 def calculate_hypotenuse(base, height):
+    ab = base ** 2 * height ** 2
+    c = sqrt(ab)
     pass
 
 
 def calculate_area(base, height):
+    area = 1/2 * base * height
     pass
 
 
 def calculate_perimeter(base, height):
+    perim = base + height + c
     pass
 
 
 def calculate_aspect(base, height):
+    aspect = base/height
     pass
 
 
@@ -86,13 +101,13 @@ def calculate_aspect(base, height):
 # Don't reinvent the wheel
 def get_triangle_facts(base, height, units="mm"):
     return {
-        "area": None,
-        "perimeter": None,
-        "height": None,
-        "base": None,
-        "hypotenuse": None,
-        "aspect": None,
-        "units": None,
+        "area": area,
+        "perimeter": perim,
+        "height": height,
+        "base": base,
+        "hypotenuse": c,
+        "aspect": aspect,
+        "units": units,
     }
 
 

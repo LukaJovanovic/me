@@ -115,3 +115,13 @@ def dig_up_capsule(file_path):
 
 
 dig_up_capsule("under_the_patio.json")
+
+
+def not_cool(name, file_path):
+    """Save a message about what is not cool"""
+    mode = "w"  # from the docs
+    uncool = open(file_path, mode)
+    uncool.write(name + " is not cool")
+    uncool.close()
+
+    not_cool(not_cool.txt)
