@@ -98,6 +98,7 @@ def abba(source="abba", guard=3):
 
         Hint: when guard == -1 return the letter.
         """
+
         if letter == "a":
             return "bba"
         elif letter == "b":
@@ -106,9 +107,17 @@ def abba(source="abba", guard=3):
             return "aoa"
         else:
             return letter
+    
+    
+    next_row = ""
+    for c in source:
+        print(c)
+        guard -= 1
+        if guard > 0:
+            next_row = next_row + apply_rules(c, guard)
+    return next_row
+            
 
-    # write the rest of the function here
-    pass
 
 
 def koch(t, order, size):
@@ -168,10 +177,10 @@ def draw_pointy(steps=4):
 
 
 if __name__ == '__main__':
-    print(draw_koch(drawing_method=square_koch, steps_deep=2))
-    print(draw_koch(drawing_method=square_koch, steps_deep=3))
-    print(draw_koch(drawing_method=square_koch, steps_deep=4))
-    print(draw_koch(drawing_method=koch, steps_deep=2))
+    # print(draw_koch(drawing_method=square_koch, steps_deep=2))
+    # print(draw_koch(drawing_method=square_koch, steps_deep=3))
+    # print(draw_koch(drawing_method=square_koch, steps_deep=4))
+    # print(draw_koch(drawing_method=koch, steps_deep=2))
     print("AB:", abba())
-    print("ID:", str(italian_dinner()))
+    # print("ID:", str(italian_dinner()))
     pass
