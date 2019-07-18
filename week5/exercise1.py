@@ -210,6 +210,6 @@ def list_of_words_with_lengths(list_of_lengths):
     pass
 
 
-"""if __name__ == "__main__":
+if __name__ == "__main__":
     do_bunch_of_bad_things()
-    wordy_pyramid("a2a73e7b926c924fad7001ca3111acd55af2ffabf50eb4ae5")"""
+    """wordy_pyramid("a2a73e7b926c924fad7001ca3111acd55af2ffabf50eb4ae5")"""
