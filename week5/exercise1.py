@@ -22,7 +22,7 @@ you'll need to figure out for yourself what to do.
 # much better job of what it's trying to do. Once you've has a little look,
 # move on, and eventually delete this function. (And this comment!)
 ready = "Getting ready to start in {}"
-
+#num starts at 9, and makes its way down by 1 number each time. If it hits 0 it will break and print "Let's go"
 def do_bunch_of_bad_things():
     num = 9
     while num == num:
@@ -172,7 +172,7 @@ def triangle_master(base, height, return_diagram=False, return_dictionary=False)
         print("You're an odd one, you don't want anything!")
 
 
-def wordy_pyramid(api_key):
+"""def wordy_pyramid(api_key):
     import requests
 
     baseURL = (
@@ -199,7 +199,7 @@ def wordy_pyramid(api_key):
             pyramid_list.append(message)
         else:
             print("failed a request", r.status_code, i)
-    return pyramid_list
+    return pyramid_list"""
 
 
 def get_a_word_of_length_n(length):
@@ -210,6 +210,6 @@ def list_of_words_with_lengths(list_of_lengths):
     pass
 
 
-if __name__ == "__main__":
+"""if __name__ == "__main__":
     do_bunch_of_bad_things()
-    wordy_pyramid("a2a73e7b926c924fad7001ca3111acd55af2ffabf50eb4ae5")
+    wordy_pyramid("a2a73e7b926c924fad7001ca3111acd55af2ffabf50eb4ae5")"""
