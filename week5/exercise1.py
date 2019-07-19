@@ -53,18 +53,18 @@ def do_bunch_of_bad_things():
 # It should say something different in the last message.
 
 def countdown(message, start, stop, completion_message):
-    start = 5
-    stop = 0
-    message = "Ready in {}"
-    completion_message = "Blast off!"
-    while num == num:
-        print(message.format(start))
-        start = start -1
-        if start == 0:
+    # start = 5
+    # stop = 0
+    # message = "Ready in {}"
+    # completion_message = "Blast off!"
+    # do it with a for loop instead
+    while start == start:
+        print("{m} {n}".format(m=message, n=start))
+        start = (start - 1)
+        if start == stop:
             break
-            print("completion_message")
+    print("completion_message")
 
-    pass
  
 
 # TRIANGLES
