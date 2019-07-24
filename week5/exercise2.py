@@ -108,13 +108,14 @@ def abba(source="abba", guard=3):
         else:
             return letter
     
-    
-    next_row = ""
-    for c in source:
-        print(c)
-        guard -= 1
-        if guard > 0:
-            next_row = next_row + apply_rules(c, guard)
+    next_row = ""  
+    for a in source:
+            if guard > 0:
+                guard -= 1
+            for c in source:
+                print(c)
+                next_row = next_row + apply_rules(c, guard)
+                print(next_row)
     return next_row
             
 
