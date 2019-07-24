@@ -152,8 +152,10 @@ def diarist():
 #The number of times the word is found before opening is 0
     a_number = 0
     #Open the file
-    a = open("Trispokedovetiles(laser).gcode")
+    a = open("Trispokedovetiles(laser).gcode", "r+")
+    f = open("laser.pew", "w+")
     #Read the lines in the file
+    f.read("Trispokedovetiles(laser).gcode")
     M10_P1 = a.readlines()
     for line in M10_P1:
         #If the M10 P1 shows up in the line, then
