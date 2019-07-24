@@ -62,8 +62,7 @@ def countdown(message, start, stop, completion_message):
         print("{m} {n}".format(m=message, n=start))
         start = (start - 1)
         if start == stop:
-            break
-    print("completion_message")
+            print("completion_message")
 
  
 
@@ -76,6 +75,7 @@ def countdown(message, start, stop, completion_message):
 # turned off by default but turned on with an optional argument.
 # The stub functions are made for you, and each one is tested, so this should
 # hand hold quite nicely.
+from math import sqrt
 def calculate_hypotenuse(base, height):
     ab = base ** 2 * height ** 2
     c = sqrt(ab)
