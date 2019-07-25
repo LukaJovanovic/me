@@ -167,7 +167,6 @@ def diarist():
     f.write(str(a_number))
     #Close the new file
     f.close()
-    pass
 
 if __name__ == "__main__":
     functions = [
