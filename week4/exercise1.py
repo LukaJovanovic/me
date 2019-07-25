@@ -42,7 +42,7 @@ def get_some_details():
     lastName = this["name"]["last"]
     password = this["login"]["password"]
     the_id = this["id"]["value"]
-    postcode = this["loaction"]["postcode"]
+    postcode = this["location"]["postcode"]
     postcodePlusID = (int(data["results"][0]["location"]["postcode"]) + int(data["results"][0]["id"]["value"]))
 
 
