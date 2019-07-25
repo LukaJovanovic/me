@@ -148,17 +148,21 @@ def diarist():
 #The number of times the word is found before opening is 0
     a_number = 0
     #Open the file
-    a = open("Trispokedovetiles(laser).gcode", "r+")
+    a = open("Trispokedovetiles(laser).gcode", "r")
+    text = file.read().split()
+    a_number = {}
     f = open("laser.pew", "w+")
     #Read the lines in the file
     f.read("Trispokedovetiles(laser).gcode")
-    M10_P1 = a.readlines()
-    for line in M10_P1:
+    for M10_P1 in text:
         #If the M10 P1 shows up in the line, then
-        if "M10 P1" in line:
-            a_number = a_number + 1
+            if M10_P1 not in a_number.keys():
+                a_number[M10_P1] = 1
+            else:
+                count = a_number[M10_P1]
+                a_number[M10_P1] = count + 1
+    print(a_number)
             #Show the final count
-    print(count)
     #Close the file
     a.close()
     #create and open a new file
