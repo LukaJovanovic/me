@@ -24,7 +24,6 @@ def be_cool(name):
 
 be_cool("Ben")
 
-
 def be_cool_for_ever(name, file_path):
     """Save a message about being cool for ever."""
     mode = "w"  # from the docs

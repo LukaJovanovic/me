@@ -144,31 +144,19 @@ def diarist():
          the test will have nothing to look at.
     TIP: this might come in handy if you need to hack a 3d print file in the future.
     """
-    #search the string and find the thing youre looking for
-#The number of times the word is found before opening is 0
-    a_number = 0
     #Open the file
-    a = open("Trispokedovetiles(laser).gcode", "r")
-    text = file.read().split()
-    a_number = {}
-    f = open("laser.pew", "w+")
+    a = open("Trispokedovetiles(laser).gcode").read()
     #Read the lines in the file
-    f.read("Trispokedovetiles(laser).gcode")
-    for M10_P1 in text:
-        #If the M10 P1 shows up in the line, then
-            if M10_P1 not in a_number.keys():
-                a_number[M10_P1] = 1
-            else:
-                count = a_number[M10_P1]
-                a_number[M10_P1] = count + 1
-    print(a_number)
-            #Show the final count
+    count = a.count("M10 P1")
+    print(count)
     #Close the file
     a.close()
+    #storage place
+    fileLoc = 'me/week4/lasers.pew'
     #create and open a new file
-    f = open("laser.pew", "w+")
+    f = open(fileLoc, "w+")
     #Write the number to the new file
-    f.write(str(a_number))
+    f.write(str(count))
     #Close the new file
     f.close()
 
