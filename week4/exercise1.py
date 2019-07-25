@@ -116,7 +116,7 @@ def pokedex(low=1, high=5):
         if r.status_code is 200:
             #this is a wall of text
             the_json = json.loads(r.text)
-            all_the_pokemon.append()
+            all_the_pokemon.append(the_json)
 
     tallest_pokemon_height = -1
 
