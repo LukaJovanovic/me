@@ -88,14 +88,14 @@ def wordy_pyramid():
     number = 3
     pyraList = []
     for daWord in range(0, 9, 2):
-        url = "http://api.wordnik.com/v4/words.json/randomWords?api_key=zau1khp6480m0ik9quh0pkcel471yx59gmv2wtnznfgn41nxn&minLength={}&maxLength={}&limit=1".format(number)
+        url = "http://api.wordnik.com/v4/words.json/randomWords?api_key=zau1khp6480m0ik9quh0pkcel471yx59gmv2wtnznfgn41nxn&minLength={}".format(number) + "&maxLength={}&limit=1".format(number)
         r = requests.get(url)
         response_json = json.loads(r.text)
         word = response_json[0]["word"]
         pyraList.append(word)
     print(pyraList)
     for ZeWord in range(0, 8, -2):
-        url = "http://api.wordnik.com/v4/words.json/randomWords?api_key=zau1khp6480m0ik9quh0pkcel471yx59gmv2wtnznfgn41nxn&minLength={}&maxLength={}&limit=1".format(number)
+        url = "http://api.wordnik.com/v4/words.json/randomWords?api_key=zau1khp6480m0ik9quh0pkcel471yx59gmv2wtnznfgn41nxn&minLength={}".format(number) + "&maxLength={}&limit=1".format(number)
         r = requests.get(url)
         response_json = json.loads(r.text)
         word = response_json[0]["word"]
@@ -161,15 +161,17 @@ def diarist():
          the test will have nothing to look at.
     TIP: this might come in handy if you need to hack a 3d print file in the future.
     """
+    from collections import Counter as c
     #Open the file
     a = open("Trispokedovetiles(laser).gcode", "r")
     #Read the lines in the file
-    count = a.count("M10 P1")
-    print(count)
+    for line in a.splitlines():
+        c.update(line.split("M10 P1"))
+    print(c)
     #storage place
     f = open("lasers.pew", "w+")
     #Write the number to the new file
-    f.write(str(count))
+    f.write(str(c))
     #Close the new file
     f.close()
     #Close the file
