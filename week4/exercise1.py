@@ -163,18 +163,18 @@ def diarist():
          the test will have nothing to look at.
     TIP: this might come in handy if you need to hack a 3d print file in the future.
     """
-    #Open the file
+    #Open the original file
     a = open(LOCAL + "/Trispokedovetiles(laser).gcode").read()
-    #Read the lines in the file for the string
+    #Read the lines in the original file for the string
     f = a.f("M10 P1")
     print(f)
-    #storage place
+    #the new file is a storage place for the frequency
     s = open("lasers.pew", "w+")
-    #Write the number to the new file
+    #Write the number to the new file "lasers.pew"
     s.write(str(f))
-    #Close the new file
+    #Close the new file created
     s.close()
-    #Close the file
+    #Close the original file
     a.close()
 
 if __name__ == "__main__":
