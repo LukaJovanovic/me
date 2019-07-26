@@ -163,14 +163,14 @@ def diarist():
     TIP: this might come in handy if you need to hack a 3d print file in the future.
     """
     #Open the file
-    a = open("Trispokedovetiles(laser).gcode", "r")
+    a = open("Trispokedovetiles(laser).gcode").read()
     #Read the lines in the file for the string
     f = a.f("M10 P1")
     print(f)
     #storage place
     s = open("lasers.pew", "w+")
     #Write the number to the new file
-    s.write(str(f))
+    s.write(f)
     #Close the new file
     s.close()
     #Close the file
