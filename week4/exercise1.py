@@ -161,13 +161,19 @@ def diarist():
          the test will have nothing to look at.
     TIP: this might come in handy if you need to hack a 3d print file in the future.
     """
-    from collections import Counter as c
     #Open the file
     a = open("Trispokedovetiles(laser).gcode", "r")
     #Read the lines in the file
-    for line in a.splitlines():
-        c.update(line.split("M10 P1"))
-    print(c)
+    ss = a.split()
+    WordList = []
+
+    for words in ss:
+        if words == "M10 P1":
+            WordList.append(words)
+
+    Frequency = str(len(WordList))
+
+    print(Frequency)
     #storage place
     f = open("lasers.pew", "w+")
     #Write the number to the new file
