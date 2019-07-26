@@ -87,23 +87,24 @@ def wordy_pyramid():
     #Change the min and max words to the count of the word needed on the line, it adds till 20 and goes back to 3
     number = 3
     pyraList = []
-    for Aword in range(0, 9):
-        url = "http://api.wordnik.com/v4/words.json/randomWords?api_key=zau1khp6480m0ik9quh0pkcel471yx59gmv2wtnznfgn41nxn&minLength={}".format(number) + "&maxLength={}&limit=1".format(number)
+    while number < 20:
+        url = "http://api.wordnik.com/v4/words.json/randomWords?api_key=zau1khp6480m0ik9quh0pkcel471yx59gmv2wtnznfgn41nxn&minLength={amount}".format(number) + "&maxLength={amount}&limit=1".format(number)
         r = requests.get(url)
         if r.status_code is 200:
             response_json = json.loads(r.text)
-            Aword = response_json[0]["word"]
-            pyraList.append(Aword)
+            pyraList.append(response_json[0]["word"])
             print(pyraList)
-    for word in range(8, 0):
-        url = "http://api.wordnik.com/v4/words.json/randomWords?api_key=zau1khp6480m0ik9quh0pkcel471yx59gmv2wtnznfgn41nxn&minLength={}".format(number) + "&maxLength={}&limit=1".format(number)
+            number = number + 1
+    while number > 3:
+        url = "http://api.wordnik.com/v4/words.json/randomWords?api_key=zau1khp6480m0ik9quh0pkcel471yx59gmv2wtnznfgn41nxn&minLength={amount}".format(number) + "&maxLength={amount}&limit=1".format(number)
         r = requests.get(url)
         if r.status_code is 200:
             response_json = json.loads(r.text)
-            word = response_json[0]["word"]
-            pyraList.append(word)
+            pyraList.append(response_json[0]["word"])
             print(pyraList)
-            return pyraList
+            number = number - 1
+            
+
 
 def pokedex(low=1, high=5):
     """ Return the name, height and weight of the tallest pokemon in the range low to high.
