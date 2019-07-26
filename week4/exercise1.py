@@ -89,19 +89,21 @@ def wordy_pyramid():
     pyraList = []
     for Aword in range(0, 9, 2):
         url = "http://api.wordnik.com/v4/words.json/randomWords?api_key=zau1khp6480m0ik9quh0pkcel471yx59gmv2wtnznfgn41nxn&minLength={}".format(number) + "&maxLength={}&limit=1".format(number)
-        r = requests.get(url)
-        response_json = json.loads(r.text)
-        Aword = response_json[0]["word"]
-        pyraList.append(Aword)
-    print(pyraList)
+        if r.status_code is 200:
+            r = requests.get(url)
+            response_json = json.loads(r.text)
+            Aword = response_json[0]["word"]
+            pyraList.append(Aword)
+            print(pyraList)
     for word in range(0, 8, -2):
         url = "http://api.wordnik.com/v4/words.json/randomWords?api_key=zau1khp6480m0ik9quh0pkcel471yx59gmv2wtnznfgn41nxn&minLength={}".format(number) + "&maxLength={}&limit=1".format(number)
-        r = requests.get(url)
-        response_json = json.loads(r.text)
-        word = response_json[0]["word"]
-        pyraList.append(word)
-        print(pyraList)
-    return pyraList
+        if r.status_code is 200:
+            r = requests.get(url)
+            response_json = json.loads(r.text)
+            word = response_json[0]["word"]
+            pyraList.append(word)
+            print(pyraList)
+            return pyraList
 
 def pokedex(low=1, high=5):
     """ Return the name, height and weight of the tallest pokemon in the range low to high.
@@ -163,14 +165,14 @@ def diarist():
     TIP: this might come in handy if you need to hack a 3d print file in the future.
     """
     #Open the file
-    a = open("Trispokedovetiles(laser).gcode").read()
+    a = open("Trispokedovetiles(laser).gcode", )
     #Read the lines in the file for the string
     f = a.f("M10 P1")
     print(f)
     #storage place
     s = open("lasers.pew", "w+")
     #Write the number to the new file
-    s.write(f)
+    s.write(str(f))
     #Close the new file
     s.close()
     #Close the file
