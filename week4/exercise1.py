@@ -88,21 +88,19 @@ def wordy_pyramid():
     number = 3
     pyraList = []
     while number < 20:
-        url = "http://api.wordnik.com/v4/words.json/randomWords?api_key=zau1khp6480m0ik9quh0pkcel471yx59gmv2wtnznfgn41nxn&minLength={amount}".format(number) + "&maxLength={amount}&limit=1".format(number)
+        url = "http://api.wordnik.com/v4/words.json/randomWords?api_key=zau1khp6480m0ik9quh0pkcel471yx59gmv2wtnznfgn41nxn&minLength={}".format(number) + "&maxLength={}&limit=1".format(number)
         r = requests.get(url)
-        if r.status_code is 200:
-            response_json = json.loads(r.text)
-            pyraList.append(response_json[0]["word"])
-            print(pyraList)
-            number = number + 1
+        response_json = json.loads(r.text)
+        pyraList.append(response_json[0]["word"])
+        print(pyraList)
+        number = number + 1
     while number > 3:
         url = "http://api.wordnik.com/v4/words.json/randomWords?api_key=zau1khp6480m0ik9quh0pkcel471yx59gmv2wtnznfgn41nxn&minLength={amount}".format(number) + "&maxLength={amount}&limit=1".format(number)
         r = requests.get(url)
-        if r.status_code is 200:
-            response_json = json.loads(r.text)
-            pyraList.append(response_json[0]["word"])
-            print(pyraList)
-            number = number - 1
+        response_json = json.loads(r.text)
+        pyraList.append(response_json[0]["word"])
+        print(pyraList)
+        number = number - 1
             
 
 
