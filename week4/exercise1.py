@@ -87,19 +87,20 @@ def wordy_pyramid():
     #Change the min and max words to the count of the word needed on the line, it adds till 20 and goes back to 3
     number = 3
     pyraList = []
-    for daWord in range(0, 9, 2):
+    for Aword in range(0, 9, 2):
         url = "http://api.wordnik.com/v4/words.json/randomWords?api_key=zau1khp6480m0ik9quh0pkcel471yx59gmv2wtnznfgn41nxn&minLength={}".format(number) + "&maxLength={}&limit=1".format(number)
         r = requests.get(url)
         response_json = json.loads(r.text)
-        word = response_json[0]["word"]
-        pyraList.append(word)
+        Aword = response_json[0]["word"]
+        pyraList.append(Aword)
     print(pyraList)
-    for ZeWord in range(0, 8, -2):
+    for word in range(0, 8, -2):
         url = "http://api.wordnik.com/v4/words.json/randomWords?api_key=zau1khp6480m0ik9quh0pkcel471yx59gmv2wtnznfgn41nxn&minLength={}".format(number) + "&maxLength={}&limit=1".format(number)
         r = requests.get(url)
         response_json = json.loads(r.text)
         word = response_json[0]["word"]
         pyraList.append(word)
+        print(pyraList)
     return pyraList
 
 def pokedex(low=1, high=5):
@@ -163,23 +164,15 @@ def diarist():
     """
     #Open the file
     a = open("Trispokedovetiles(laser).gcode", "r")
-    #Read the lines in the file
-    ss = a.split()
-    WordList = []
-
-    for words in ss:
-        if words == "M10 P1":
-            WordList.append(words)
-
-    Frequency = str(len(WordList))
-
-    print(Frequency)
+    #Read the lines in the file for the string
+    f = a.f("M10 P1")
+    print(f)
     #storage place
-    f = open("lasers.pew", "w+")
+    s = open("lasers.pew", "w+")
     #Write the number to the new file
-    f.write(str(c))
+    s.write(str(f))
     #Close the new file
-    f.close()
+    s.close()
     #Close the file
     a.close()
 
