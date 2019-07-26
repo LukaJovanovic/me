@@ -87,22 +87,22 @@ def wordy_pyramid():
     #Change the min and max words to the count of the word needed on the line, it adds till 20 and goes back to 3
     number = 3
     pyraList = []
+    i = 0
     while number < 20:
         url = "http://api.wordnik.com/v4/words.json/randomWords?api_key=zau1khp6480m0ik9quh0pkcel471yx59gmv2wtnznfgn41nxn&minLength={}".format(number) + "&maxLength={}&limit=1".format(number)
         r = requests.get(url)
         response_json = json.loads(r.text)
         pyraList.append(response_json[0]["word"])
         print(pyraList)
-        number = number + 1
-    while number > 3:
+        number = number + 2
+    if number > 3:
         url = "http://api.wordnik.com/v4/words.json/randomWords?api_key=zau1khp6480m0ik9quh0pkcel471yx59gmv2wtnznfgn41nxn&minLength={amount}".format(number) + "&maxLength={amount}&limit=1".format(number)
         r = requests.get(url)
         response_json = json.loads(r.text)
-        pyraList.append(response_json[0]["word"])
+        pyraList.append(response_json[i]["word"])
         print(pyraList)
-        number = number - 1
+        number = number - 2
             
-
 
 def pokedex(low=1, high=5):
     """ Return the name, height and weight of the tallest pokemon in the range low to high.
@@ -164,7 +164,7 @@ def diarist():
     TIP: this might come in handy if you need to hack a 3d print file in the future.
     """
     #Open the file
-    a = open("Trispokedovetiles(laser).gcode", )
+    a = open(LOCAL + "/Trispokedovetiles(laser).gcode").read()
     #Read the lines in the file for the string
     f = a.f("M10 P1")
     print(f)
