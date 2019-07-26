@@ -149,16 +149,14 @@ def diarist():
     #Read the lines in the file
     count = a.count("M10 P1")
     print(count)
-    #Close the file
-    a.close()
     #storage place
-    fileLoc = 'me/week4/lasers.pew'
-    #create and open a new file
-    f = open(fileLoc, "w+")
+    f = open("lasers.pew", "w+")
     #Write the number to the new file
     f.write(str(count))
     #Close the new file
     f.close()
+    #Close the file
+    a.close()
 
 if __name__ == "__main__":
     functions = [
