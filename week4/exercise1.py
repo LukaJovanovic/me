@@ -84,7 +84,23 @@ def wordy_pyramid():
     ]
     TIP: to add an argument to a URL, use: ?argName=argVal e.g. &minLength=
     """
-    pass
+    #Change the min and max words to the count of the word needed on the line, it adds till 20 and goes back to 3
+    number = 3
+    pyraList = []
+    for daWord in range(0, 9, 2):
+        url = "http://api.wordnik.com/v4/words.json/randomWords?api_key=zau1khp6480m0ik9quh0pkcel471yx59gmv2wtnznfgn41nxn&minLength={}&maxLength={}&limit=1".format(number)
+        r = requests.get(url)
+        response_json = json.loads(r.text)
+        word = response_json[0]["word"]
+        pyraList.append(word)
+    print(pyraList)
+    for ZeWord in range(0, 8, -2):
+        url = "http://api.wordnik.com/v4/words.json/randomWords?api_key=zau1khp6480m0ik9quh0pkcel471yx59gmv2wtnznfgn41nxn&minLength={}&maxLength={}&limit=1".format(number)
+        r = requests.get(url)
+        response_json = json.loads(r.text)
+        word = response_json[0]["word"]
+        pyraList.append(word)
+    return pyraList
 
 def pokedex(low=1, high=5):
     """ Return the name, height and weight of the tallest pokemon in the range low to high.
@@ -105,6 +121,7 @@ def pokedex(low=1, high=5):
     all_the_pokemon = []
 
     index_of_tallest = -1
+
     tallest = None
 
     for pokeID in range(low, high):
@@ -145,7 +162,7 @@ def diarist():
     TIP: this might come in handy if you need to hack a 3d print file in the future.
     """
     #Open the file
-    a = open("Trispokedovetiles(laser).gcode").read()
+    a = open("Trispokedovetiles(laser).gcode", "r")
     #Read the lines in the file
     count = a.count("M10 P1")
     print(count)
