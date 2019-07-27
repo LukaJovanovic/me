@@ -99,11 +99,10 @@ def wordy_pyramid():
         r = requests.get(url)
         response_json = json.loads(r.text)
         pyraList.append(response_json[0]["word"])
-        number = number + 2
+        number = number - 2
         print(pyraList)
 
-
-
+        return pyraList
 
 
 def pokedex(low=1, high=5):
