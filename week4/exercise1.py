@@ -169,7 +169,7 @@ def diarist():
     c = a.count("M10 P1")
     print(c)
     #storage place
-    s = open("lasers.pew", "w+")
+    s = open("/lasers.pew", "w+")
     #Write the number to the new file "lasers.pew"
     s.write(str(c))
     #Close the new file created
