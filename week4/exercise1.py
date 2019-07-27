@@ -87,14 +87,23 @@ def wordy_pyramid():
     #Change the min and max words to the count of the word needed on the line, it adds till 20 and goes back to 3
     pyraList = []
     number = 3
-    for number in range(3, 33, 2):
-        url = "http://api.wordnik.com/v4/words.json/randomWords?api_key=zau1khp6480m0ik9quh0pkcel471yx59gmv2wtnznfgn41nxn&minLength={}".format(number) + "&maxLength={}&limit=1".format(number)
-        if number < 20:
-            r = requests.get(url)
-            response_json = json.loads(r.text)
-            pyraList.append(response_json[0]["word"])
-            number = number + 2
-            print(pyraList)
+    limit = 20
+    url = "http://api.wordnik.com/v4/words.json/randomWords?api_key=zau1khp6480m0ik9quh0pkcel471yx59gmv2wtnznfgn41nxn&minLength={}".format(number) + "&maxLength={}&limit=1".format(number)
+    while number <= limit:
+        r = requests.get(url)
+        response_json = json.loads(r.text)
+        pyraList.append(response_json[0]["word"])
+        number = number + 2
+        print(pyraList)
+    while 3 < number:
+        r = requests.get(url)
+        response_json = json.loads(r.text)
+        pyraList.append(response_json[0]["word"])
+        number = number + 2
+        print(pyraList)
+
+
+
 
 
 def pokedex(low=1, high=5):
