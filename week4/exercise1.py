@@ -92,6 +92,7 @@ def wordy_pyramid():
     #While it is going up
     while True:
         if number <= limit:
+            url = "http://api.wordnik.com/v4/words.json/randomWords?api_key=zau1khp6480m0ik9quh0pkcel471yx59gmv2wtnznfgn41nxn&minLength={}".format(number) + "&maxLength={}&limit=1".format(number)
             r = requests.get(url)
             response_json = json.loads(r.text)
             pyraList.append(response_json[0]["word"])
@@ -103,6 +104,7 @@ def wordy_pyramid():
             #While it is going back down
     while True:
         if 3 < number:
+            url = "http://api.wordnik.com/v4/words.json/randomWords?api_key=zau1khp6480m0ik9quh0pkcel471yx59gmv2wtnznfgn41nxn&minLength={}".format(number) + "&maxLength={}&limit=1".format(number)
             r = requests.get(url)
             response_json = json.loads(r.text)
             pyraList.append(response_json[0]["word"])
