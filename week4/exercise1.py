@@ -1,4 +1,4 @@
-"""All about IO."""
+#"""All about IO."""
 
 
 import json
@@ -163,19 +163,17 @@ def diarist():
          the test will have nothing to look at.
     TIP: this might come in handy if you need to hack a 3d print file in the future.
     """
-    #Open the original file
+    #Open the file and read the lines
     a = open(LOCAL + "/Trispokedovetiles(laser).gcode").read()
-    #Read the lines in the original file for the string
-    f = a.f("M10 P1")
-    print(f)
-    #the new file is a storage place for the frequency
+    #count f
+    c = a.count("M10 P1")
+    print(c)
+    #storage place
     s = open("lasers.pew", "w+")
     #Write the number to the new file "lasers.pew"
-    s.write(str(f))
+    s.write(str(c))
     #Close the new file created
     s.close()
-    #Close the original file
-    a.close()
 
 if __name__ == "__main__":
     functions = [
