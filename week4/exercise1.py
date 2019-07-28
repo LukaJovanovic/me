@@ -96,11 +96,11 @@ def wordy_pyramid():
             r = requests.get(url)
             response_json = json.loads(r.text)
             pyraList.append(response_json[0]["word"])
-            number = number =+ 2
+            number = number + 2
             #while going up by 2
             print(pyraList)
-        else:
-            False
+        elif number >= limit:
+            break
             #While it is going back down
     while True:
         if 3 < number:
@@ -108,11 +108,11 @@ def wordy_pyramid():
             r = requests.get(url)
             response_json = json.loads(r.text)
             pyraList.append(response_json[0]["word"])
-            number = number =- 2
+            number = number - 2
             #while going down by 2
             print(pyraList)
-        else:
-            False
+        elif number <= 3:
+            break
     #final pyramid list
     print(pyraList)
 
