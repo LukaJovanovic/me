@@ -96,6 +96,7 @@ def wordy_pyramid():
             r = requests.get(url)
             response_json = json.loads(r.text)
             #while loop to keep asking until there is no error
+            #can get constantly stuck in error 429
             while r.status_code != 200:
                 r = requests.get(url)
                 response_json = json.loads(r.text)
@@ -113,6 +114,7 @@ def wordy_pyramid():
             r = requests.get(url)
             response_json = json.loads(r.text)
             #while loop to keep asking until there is no error
+            #Can get stuck in error 429 while re-requesting(too many requests/ too often)
             while r.status_code != 200:
                 r = requests.get(url)
                 response_json = json.loads(r.text)
