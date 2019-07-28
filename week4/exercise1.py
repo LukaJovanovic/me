@@ -125,9 +125,8 @@ def wordy_pyramid():
         elif number <= 3:
             break
     #final pyramid list
-    print('\n'.join(map(str,pyraList)))
 
-    return ('\n'.join(map(str,pyraList)))
+    return ('\n'.join(pyraList))
 
 
 def pokedex(low=1, high=5):
