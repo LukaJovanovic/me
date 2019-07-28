@@ -88,19 +88,19 @@ def wordy_pyramid():
     pyraList = []
     number = 3
     limit = 20
-    url = "http://api.wordnik.com/v4/words.json/randomWords?api_key=zau1khp6480m0ik9quh0pkcel471yx59gmv2wtnznfgn41nxn&minLength={}".format(number) + "&maxLength={}&limit=1".format(number)
+    url = "https://us-central1-waldenpondpress.cloudfunctions.net/give_me_a_word?wordlength={}".format(number)
     #While it is going up
     while True:
         if number <= limit:
-            url = "http://api.wordnik.com/v4/words.json/randomWords?api_key=zau1khp6480m0ik9quh0pkcel471yx59gmv2wtnznfgn41nxn&minLength={}".format(number) + "&maxLength={}&limit=1".format(number)
+            url = "https://us-central1-waldenpondpress.cloudfunctions.net/give_me_a_word?wordlength={}".format(number)
             r = requests.get(url)
-            response_json = json.loads(r.text)
+            response_json = r.text
             #while loop to keep asking until there is no error
             #can get constantly stuck in error 429
             while r.status_code != 200:
                 r = requests.get(url)
                 response_json = json.loads(r.text)
-            pyraList.append(response_json[0]["word"])
+            pyraList.append(response_json)
             number = number + 2
             #while going up by 2
             print(pyraList)
