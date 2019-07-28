@@ -87,7 +87,7 @@ def wordy_pyramid():
     #Change the min and max words to the count of the word needed on the line, it adds till 20 and goes back to 3
     pyraList = []
     number = 3
-    limit = 20
+    limit = 18
     url = "https://us-central1-waldenpondpress.cloudfunctions.net/give_me_a_word?wordlength={}".format(number)
     #While it is going up
     while True:
@@ -99,7 +99,7 @@ def wordy_pyramid():
             #can get constantly stuck in error 429
             while r.status_code != 200:
                 r = requests.get(url)
-                response_json = json.loads(r.text)
+                response_json = r.text
             pyraList.append(response_json)
             number = number + 2
             #while going up by 2
@@ -110,24 +110,24 @@ def wordy_pyramid():
     number = 20
     while True:
         if 3 < number:
-            url = "http://api.wordnik.com/v4/words.json/randomWords?api_key=zau1khp6480m0ik9quh0pkcel471yx59gmv2wtnznfgn41nxn&minLength={}".format(number) + "&maxLength={}&limit=1".format(number)
+            url = "https://us-central1-waldenpondpress.cloudfunctions.net/give_me_a_word?wordlength={}".format(number)
             r = requests.get(url)
-            response_json = json.loads(r.text)
+            response_json = r.text
             #while loop to keep asking until there is no error
             #Can get stuck in error 429 while re-requesting(too many requests/ too often)
             while r.status_code != 200:
                 r = requests.get(url)
-                response_json = json.loads(r.text)
-            pyraList.append(response_json[0]["word"])
+                response_json = r.text
+            pyraList.append(response_json)
             number = number - 2
             #while going down by 2
             print(pyraList)
         elif number <= 3:
             break
     #final pyramid list
-    print(pyraList)
+    print('\n'.join(map(str,pyraList)))
 
-    return pyraList
+    return ('\n'.join(map(str,pyraList)))
 
 
 def pokedex(low=1, high=5):
