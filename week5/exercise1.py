@@ -25,11 +25,13 @@ ready = "Getting ready to start in {}"
 #num starts at 9, and makes its way down by 1 number each time. If it hits 0 it will break and print "Let's go"
 def do_bunch_of_bad_things():
     num = 9
+    #While loop countdown
     while num == num:
         print(ready.format(num))
         num = (num -1)
         if num == 0:
             break
+            #Message after it counts down
     print("Let's go!")
 
     triangle = {"base": 3, "height": 4}
