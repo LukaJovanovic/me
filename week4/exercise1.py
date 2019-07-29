@@ -126,7 +126,7 @@ def wordy_pyramid():
             break
     #final pyramid list
 
-    return ('\n'.join(pyraList))
+    return pyralist
 
 
 def pokedex(low=1, high=5):
