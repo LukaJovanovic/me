@@ -81,7 +81,7 @@ def countdown(message, start, stop, completion_message):
 from math import sqrt
 def calculate_hypotenuse(base, height):
     ab = base ** 2 * height ** 2
-    c = sqrt(ab)
+    hypotenuse = sqrt(ab)
     pass
 
 
@@ -91,7 +91,7 @@ def calculate_area(base, height):
 
 
 def calculate_perimeter(base, height):
-    perim = base + height + c
+    perimeter = base + height + hypotenuse
     pass
 
 
@@ -105,10 +105,10 @@ def calculate_aspect(base, height):
 def get_triangle_facts(base, height, units="mm"):
     return {
         "area": area,
-        "perimeter": perim,
+        "perimeter": perimeter,
         "height": height,
         "base": base,
-        "hypotenuse": c,
+        "hypotenuse": hypotenuse,
         "aspect": aspect,
         "units": units,
     }

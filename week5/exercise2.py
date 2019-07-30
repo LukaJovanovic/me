@@ -113,7 +113,10 @@ def abba(source="abba", guard=3):
     for c in source:
         print(c)
         next_row = next_row + apply_rules(c, guard)
-    return next_row
+    final = (apply_rules(next_row, guard))
+    print(final)
+    return final
+    
             
 
 
