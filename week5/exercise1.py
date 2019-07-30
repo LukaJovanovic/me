@@ -65,7 +65,7 @@ def countdown(message, start, stop, completion_message):
         start = (start - 1)
         if start == stop:
             break
-        print("completion_message")
+        print(completion_message)
 
  
 
