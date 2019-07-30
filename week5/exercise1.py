@@ -93,7 +93,12 @@ def calculate_perimeter(base, height):
 
 
 def calculate_aspect(base, height):
-    return base/height
+    if base == height:
+        return "equal"
+    elif base > height:
+        return "wide"
+    elif base < height:
+        return "tall"
 
 
 # Make sure you reuse the functions you've already got
