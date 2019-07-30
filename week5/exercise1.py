@@ -55,16 +55,17 @@ def do_bunch_of_bad_things():
 # It should say something different in the last message.
 
 def countdown(message, start, stop, completion_message):
-    # start = 5
-    # stop = 0
-    # message = "Ready in {}"
-    # completion_message = "Blast off!"
+    start = 5
+    stop = 0
+    message = "Ready in {}"
+    completion_message = "Blast off!"
     # do it with a for loop instead
-    while start == start:
+    while True:
         print("{m} {n}".format(m=message, n=start))
         start = (start - 1)
         if start == stop:
-            print("completion_message")
+            break
+        print("completion_message")
 
  
 
@@ -174,7 +175,7 @@ def triangle_master(base, height, return_diagram=False, return_dictionary=False)
         print("You're an odd one, you don't want anything!")
 
 
-"""def wordy_pyramid(api_key):
+def wordy_pyramid(api_key):
     import requests
 
     baseURL = (
@@ -201,7 +202,7 @@ def triangle_master(base, height, return_diagram=False, return_dictionary=False)
             pyramid_list.append(message)
         else:
             print("failed a request", r.status_code, i)
-    return pyramid_list"""
+    return pyramid_list
 
 
 def get_a_word_of_length_n(length):
