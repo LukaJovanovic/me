@@ -84,7 +84,7 @@ perimeter = -1
 aspect = -1
 from math import sqrt
 def calculate_hypotenuse(base, height):
-    ab = base ** 2 * height ** 2
+    ab = base ** 2 + height ** 2
     return sqrt(ab)
 
 
