@@ -165,13 +165,19 @@ def tell_me_about_this_right_triangle(facts_dictionary):
     facts = pattern.format(**facts_dictionary)
 
 
+
 def triangle_master(base, height, return_diagram=False, return_dictionary=False):
+
+    Dict = get_triangle_facts(base, height, units="mm")
+
+    Diagram = tell_me_about_this_right_triangle(Dict)
+
     if return_diagram and return_dictionary:
-        return None
+        return Diagram and Dict
     elif return_diagram:
-        return None
+        return Diagram
     elif return_dictionary:
-        return None
+        return Dict
     else:
         print("You're an odd one, you don't want anything!")
 
@@ -188,7 +194,7 @@ def wordy_pyramid(api_key):
     )
     pyramid_list = []
     for i in range(3, 21, 2):
-        url = baseURL.format(api_key="", length=i)
+        url = baseURL.format(api_key="zau1khp6480m0ik9quh0pkcel471yx59gmv2wtnznfgn41nxn", length=i)
         r = requests.get(url)
         if r.status_code is 200:
             message = r.json()[0]["word"]
@@ -196,7 +202,7 @@ def wordy_pyramid(api_key):
         else:
             print("failed a request", r.status_code, i)
     for i in range(20, 3, -2):
-        url = baseURL.format(api_key="", length=i)
+        url = baseURL.format(api_key="zau1khp6480m0ik9quh0pkcel471yx59gmv2wtnznfgn41nxn", length=i)
         r = requests.get(url)
         if r.status_code is 200:
             message = r.json()[0]["word"]
@@ -207,8 +213,23 @@ def wordy_pyramid(api_key):
 
 
 def get_a_word_of_length_n(length):
-    pass
+    import requests
 
+    baseURL = (
+        "http://api.wordnik.com/v4/words.json/randomWords?"
+        "api_key={api_key}"
+        "&minLength={length}"
+        "&maxLength={length}"
+        "&limit=1"
+    )
+    for length in range(1):
+        url = baseURL.format(api_key="zau1khp6480m0ik9quh0pkcel471yx59gmv2wtnznfgn41nxn", length=length)
+        r = requests.get(url)
+        if r.status_code is 200:
+            message = r.json()[0]["word"]
+        else:
+            print("failed a request", r.status_code, i)
+    return message
 
 def list_of_words_with_lengths(list_of_lengths):
     pass
