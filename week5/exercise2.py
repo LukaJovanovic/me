@@ -164,13 +164,31 @@ def square_koch(t, order, size):
     """
     trace = ""
     # write the rest of the function here
+    if order == 0:          # The base case is just a straight line
+        t.forward(size)
+    
+    else:
+        #square koch makes it a square koch instead of pointy koch
+        #it travels towards the right so left takes it up as its a 90 degree turn
+        trace += square_koch(t, order-1, size/3) 
+        t.left(90)
+        #its travelling up so right takes it back in the right direction as its a 90 degree turn
+        trace += square_koch(t, order-1, size/3)
+        t.right(90)
+        #Now it is going downwards due to the 90 degree to the right turn
+        trace += square_koch(t, order-1, size/3)
+        t.right(90)
+        #Now it is travelling towards the right down the original path due to being turned left 90 degrees while travelling down
+        trace += square_koch(t, order-1, size/3)
+        t.left(90)
+        trace += square_koch(t, order-1, size/3)
     return str(order) + trace
-    pass
 
 
 def draw_square(steps=4):
     """Helper function to make testing easier."""
     return draw_koch(drawing_method=square_koch, steps_deep=steps)
+    
 
 
 def draw_pointy(steps=4):
