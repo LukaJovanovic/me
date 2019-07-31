@@ -163,7 +163,7 @@ def square_koch(t, order, size):
 
     """
     trace = ""
-    # write the rest of the function here.
+    # write the rest of the function here
     return str(order) + trace
     pass
 

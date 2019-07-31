@@ -230,7 +230,7 @@ def get_a_word_of_length_n(length):
             message = r.json()[0]["word"]
             PyraList.append(message)
         else:
-            print("failed a request", r.status_code, i)
+            print("failed a request", r.status_code, length)
     return PyraList
 
 def list_of_words_with_lengths(list_of_lengths):
