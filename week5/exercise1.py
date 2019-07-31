@@ -213,6 +213,7 @@ def wordy_pyramid(api_key):
 
 
 def get_a_word_of_length_n(length):
+    
     import requests
 
     baseURL = (
@@ -222,15 +223,19 @@ def get_a_word_of_length_n(length):
         "&maxLength={length}"
         "&limit=1"
     )
+    n = length
+    limit = 1
+    Dalist = []
+    for length in range(limit):
+        url = baseURL.format(api_key="zau1khp6480m0ik9quh0pkcel471yx59gmv2wtnznfgn41nxn", length = n)
+        r = requests.get(url)
+        if r.status_code is 200:
+            message = r.json()[0]["word"]
+            Dalist.append(message)
+        elif r.status_code != 200:
+            print("failed a request", r.status_code, n)
+    return ("\n".join(Dalist))
 
-    url = baseURL.format(api_key="", length=length)
-    r = requests.get(url)
-    if r.status_code is 200:
-        message = r.json()[0]["word"]
-
-    else:
-        print("failed a request", r.status_code, length)
-    return message
 
 def list_of_words_with_lengths(list_of_lengths):
     pass
