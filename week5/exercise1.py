@@ -222,14 +222,16 @@ def get_a_word_of_length_n(length):
         "&maxLength={length}"
         "&limit=1"
     )
+    PyraList = []
     for length in range(1):
         url = baseURL.format(api_key="zau1khp6480m0ik9quh0pkcel471yx59gmv2wtnznfgn41nxn", length=length)
         r = requests.get(url)
         if r.status_code is 200:
             message = r.json()[0]["word"]
+            PyraList.append(message)
         else:
             print("failed a request", r.status_code, i)
-    return message
+    return PyraList
 
 def list_of_words_with_lengths(list_of_lengths):
     pass
