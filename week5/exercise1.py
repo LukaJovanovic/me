@@ -165,14 +165,14 @@ def tell_me_about_this_right_triangle(facts_dictionary):
 
     facts = pattern.format(**facts_dictionary)
 #Checks the base and the height to see what Aspect they are and gives the result
-    # if facts_dictionary["base"] > facts_dictionary["height"]:
-    #     Aspect = wide
-    # elif facts_dictionary["base"] < facts_dictionary["height"]:
-    #     Aspect = tall
-    # elif facts_dictionary["base"] == facts_dictionary["height"]:
-    #     Aspect = wide
+    if facts_dictionary["base"] > facts_dictionary["height"]:
+        Aspect = wide
+    elif facts_dictionary["base"] < facts_dictionary["height"]:
+        Aspect = tall
+    elif facts_dictionary["base"] == facts_dictionary["height"]:
+        Aspect = wide
 
-    # return Aspect + facts
+    return Aspect + facts
 
 def triangle_master(base, height, return_diagram=False, return_dictionary=False):
 
