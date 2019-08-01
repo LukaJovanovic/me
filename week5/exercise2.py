@@ -117,7 +117,7 @@ def abba(source="abba", guard=3):
     #joining the letters with nothing between
     NS = "".join(new_string)
     guard -= 1
-    if guard > 0:
+    if guard == -1:
         return abba(NS, guard)
     else:
         return NS
