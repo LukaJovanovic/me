@@ -109,14 +109,18 @@ def abba(source="abba", guard=3):
         else:
             return letter
     
-    parts = source(" ")
-    result = list(map(apply_rules, parts))
-    new_string = " ".join(result)
+    parts = list(source)
+    new_string = []
+    #The application of rules
+    for a in parts:
+        new_string.append(apply_rules(a, guard))
+    #joining the letters with nothing between
+    NS = "".join(new_string)
     guard -= 1
     if guard > 0:
-        return italian_dinner(new_string, guard)
+        return abba(NS, guard)
     else:
-        return new_string
+        return NS
 
 def koch(t, order, size):
     """Make turtle t draw a Koch fractal of 'order' and 'size'."""
