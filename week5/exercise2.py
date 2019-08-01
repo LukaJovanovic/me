@@ -108,17 +108,15 @@ def abba(source="abba", guard=3):
         else:
             return letter
     
-    final = ""
     next_row = ""
-    if guard > 0:
-        for c in source:
-            print(c)
+    new_row = ""
+    guard2 = 11
+    for c in source:
+        if guard > 0:
             next_row = next_row + apply_rules(c, guard)
-        final = (apply_rules(next_row, guard))
-    else:
-        print(final)
-        return final
-    
+        else:
+            new_row = new_row + apply_rules(next_row, guard2)
+            return new_row
 
 def koch(t, order, size):
     """Make turtle t draw a Koch fractal of 'order' and 'size'."""

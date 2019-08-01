@@ -161,10 +161,7 @@ def tell_me_about_this_right_triangle(facts_dictionary):
         "It has a perimeter of {perimeter}{units}\n"
         "This is a {aspect} triangle.\n"
     )
-
     facts = pattern.format(**facts_dictionary)
-
-
 
 def triangle_master(base, height, return_diagram=False, return_dictionary=False):
 
