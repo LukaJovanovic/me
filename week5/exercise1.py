@@ -66,6 +66,7 @@ def countdown(message, start, stop, completion_message):
         if start == stop:
             break
         print(completion_message)
+        return completion_message
 
  
 
@@ -161,20 +162,30 @@ def tell_me_about_this_right_triangle(facts_dictionary):
         "It has a perimeter of {perimeter}{units}\n"
         "This is a {aspect} triangle.\n"
     )
+
     facts = pattern.format(**facts_dictionary)
+#Checks the base and the height to see what Aspect they are and gives the result
+    if facts_dictionary["base"] > facts_dictionary["height"]:
+        Aspect = wide
+    elif facts_dictionary["base"] < facts_dictionary["height"]:
+        Aspect = tall
+    elif facts_dictionary["base"] == facts_dictionary["height"]:
+        Aspect = wide
+
+    return Aspect + facts
 
 def triangle_master(base, height, return_diagram=False, return_dictionary=False):
 
-    Dict = get_triangle_facts(base, height, units="mm")
+    facts = get_triangle_facts(base, height, units="mm")
 
-    Diagram = tell_me_about_this_right_triangle(Dict)
+    diagram = tell_me_about_this_right_triangle(facts)
 
     if return_diagram and return_dictionary:
-        return Diagram and Dict
+        return diagram and facts
     elif return_diagram:
-        return Diagram
+        return diagram
     elif return_dictionary:
-        return Dict
+        return facts
     else:
         print("You're an odd one, you don't want anything!")
 

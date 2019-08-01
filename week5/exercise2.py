@@ -52,6 +52,7 @@ def italian_dinner(axiom="tomatoes", guard=6):
 
     Here's a photo of the page: https://goo.gl/photos/bEh8dmkYkeAy7W727
     """
+    #How to do recursive function
     parts = axiom.split(" ")
     result = list(map(italian_rules, parts))
     new_string = " ".join(result)
@@ -108,15 +109,14 @@ def abba(source="abba", guard=3):
         else:
             return letter
     
-    next_row = ""
-    new_row = ""
-    guard2 = 11
-    for c in source:
-        if guard > 0:
-            next_row = next_row + apply_rules(c, guard)
-        else:
-            new_row = new_row + apply_rules(next_row, guard2)
-            return new_row
+    parts = source(" ")
+    result = list(map(apply_rules, parts))
+    new_string = " ".join(result)
+    guard -= 1
+    if guard > 0:
+        return italian_dinner(new_string, guard)
+    else:
+        return new_string
 
 def koch(t, order, size):
     """Make turtle t draw a Koch fractal of 'order' and 'size'."""
