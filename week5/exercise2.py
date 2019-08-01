@@ -110,17 +110,15 @@ def abba(source="abba", guard=3):
     
     final = ""
     next_row = ""
-    if len(final) < 34:
+    if guard > 0:
         for c in source:
             print(c)
             next_row = next_row + apply_rules(c, guard)
         final = (apply_rules(next_row, guard))
-    print(final)
-    return final
+    else:
+        print(final)
+        return final
     
-            
-
-
 
 def koch(t, order, size):
     """Make turtle t draw a Koch fractal of 'order' and 'size'."""
@@ -188,7 +186,7 @@ def square_koch(t, order, size):
 def draw_square(steps=4):
     """Helper function to make testing easier."""
     return draw_koch(drawing_method=square_koch, steps_deep=steps)
-    
+
 
 
 def draw_pointy(steps=4):
