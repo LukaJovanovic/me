@@ -165,6 +165,7 @@ def tell_me_about_this_right_triangle(facts_dictionary):
 
     facts = pattern.format(**facts_dictionary)
 #Checks the base and the height to see what Aspect they are and gives the result
+#This doesn't work with the test for some reason so comment in out to see the rest of the results
     if "base" > "height":
         Aspect = wide
     elif "base" < "height":
@@ -179,7 +180,7 @@ def triangle_master(base, height, return_diagram=False, return_dictionary=False)
     facts = get_triangle_facts(base, height, units="mm")
 
     diagram = tell_me_about_this_right_triangle(facts)
-
+#Gets whats needed dependding on the situation
     if return_diagram and return_dictionary:
         return diagram and facts
     elif return_diagram:
@@ -192,12 +193,14 @@ def triangle_master(base, height, return_diagram=False, return_dictionary=False)
 
 def wordy_pyramid(api_key):
     import requests
-
+#URL with length
     baseURL = (
         "https://us-central1-waldenpondpress.cloudfunctions.net/give_me_a_word?"
         "wordlength={length}"
     )
+    #an initial list
     pyramid_list = []
+    #Grabs words in ranges at a step of 2
     for i in range(3, 21, 2):
         url = baseURL.format(length=i)
         r = requests.get(url)
@@ -205,7 +208,9 @@ def wordy_pyramid(api_key):
             message = r.text
             pyramid_list.append(message)
         else:
+            #If it fails it will tell you the status code and give re-run
             print("failed a request", r.status_code, i)
+    #Now a negative step so it goes down in the pyramid pattern
     for i in range(20, 3, -2):
         url = baseURL.format(length=i)
         r = requests.get(url)
