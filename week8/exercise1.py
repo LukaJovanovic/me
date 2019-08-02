@@ -219,8 +219,8 @@ def random_filler_text(number_of_words=200):
         see line 77 of week4/hangman_leadboard.py for an example.
     """
     import random
-    wordIndex = make_filler_text_dictionary(0, len(wordList) - 1)
-    return wordList[wordIndex]
+    wordIndex = make_filler_text_dictionary in range(13)
+    return wordIndex
 
 
 def fast_filler(number_of_words=200):
