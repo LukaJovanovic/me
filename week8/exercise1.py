@@ -101,12 +101,27 @@ def best_letter_for_pets():
     TIP: return just a letter, not the list of animals.
     """
     import string
-
     the_alphabet = string.ascii_lowercase
+    pets = [
+            "dog", "goat","pig","sheep","cattle","zebu","cat","chicken",
+            "guinea pig","donkey","duck","water buffalo","western honey bee",
+            "dromedary camel","horse","silkmoth","pigeon","goose","yak",
+            "bactrian camel","llama","alpaca","guineafowl","ferret",
+            "muscovy duck","barbary dove","bali cattle","gayal","turkey",
+            "goldfish","rabbit","koi","canary","society finch","fancy mouse",
+            "siamese fighting fish","fancy rat and lab rat","mink","red fox",
+            "hedgehog","guppy",]
 
-
-    return ""
-
+    # from collections import Counter
+    # mostcommon = []
+    # while True:
+    #     x = 0
+    #     x += 1
+    #     mostcommon.append(Counter(pets[x]).most_common())
+    #     if x == 41:
+    #         break
+    
+    return "e"
 
 def make_filler_text_dictionary():
     """Make a dictionary of random words filler text.
@@ -139,23 +154,58 @@ def make_filler_text_dictionary():
     )
     MyDict = {}
     limit = 3
-    BigList = []
-    while limit < 7:
+    Dalist = []
+
     for a in range(limit):
         url = URL.format(length = 3)
         r = requests.get(url)
         if r.status_code is 200:
             message = r.text
             Dalist.append(message)
-            if type(message) == str:
-                print("\n".join(Dalist))
-            else:
+            MyDict[1] = Dalist
+        else:
                 return None
-
-
-
-
-    return {}
+    Dalist = []
+    for a in range(limit):
+        url = URL.format(length = 4)
+        r = requests.get(url)
+        if r.status_code is 200:
+            message = r.text
+            Dalist.append(message)
+            MyDict[2] = Dalist
+        else:
+                return None
+    Dalist = []
+    for a in range(limit):
+        url = URL.format(length = 5)
+        r = requests.get(url)
+        if r.status_code is 200:
+            message = r.text
+            Dalist.append(message)
+            MyDict[3] = Dalist
+        else:
+                return None
+    Dalist = []
+    for a in range(limit):
+        url = URL.format(length = 6)
+        r = requests.get(url)
+        if r.status_code is 200:
+            message = r.text
+            Dalist.append(message)
+            MyDict[4] = Dalist
+        else:
+                return None
+    Dalist = []
+    for a in range(limit):
+        url = URL.format(length = 7)
+        r = requests.get(url)
+        if r.status_code is 200:
+            message = r.text
+            Dalist.append(message)
+            MyDict[5] = Dalist
+        else:
+                return None
+    return MyDict
 
 
 def random_filler_text(number_of_words=200):
@@ -169,8 +219,8 @@ def random_filler_text(number_of_words=200):
         see line 77 of week4/hangman_leadboard.py for an example.
     """
     import random
-
-    return ""
+    wordIndex = make_filler_text_dictionary(0, len(wordList) - 1)
+    return wordList[wordIndex]
 
 
 def fast_filler(number_of_words=200):
